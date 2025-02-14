@@ -1,24 +1,22 @@
-function move_player(direction) {
-    return new Promise((resolve => {
-        console.log(`The player will move ${direction}`)
-        setTimeout(() => {
-            console.log(`The player has moved ${direction}`);
-            resolve(direction);
-        }, 1000)
-    }))
-}
-
-function checkGameOver(score) {
+function movePlayer(direction) {
     return new Promise((resolve) => {
-        console.log("Checking game over conditions...");
+        console.log(`Player will move ${direction}...`);
         setTimeout(() => {
-            if (score >= 50) {
-                console.log("Game over!");
-                resolve("Game Over");
-            } else {
-                console.log("Continue playing.");
-                resolve("Continue");
-            }
+            console.log(`Player has moved ${direction}`);
+            resolve(direction);
         }, 1000);
     });
 }
+
+function calculateScore(events) {
+    return new Promise((resolve) => {
+        console.log("Calculating score...");
+        setTimeout(() => {
+            let score = events.length * 10
+            console.log(`Score calculated: ${score}`);
+            resolve(score);
+        }, 1500);
+    });
+}
+
+module.exports = { movePlayer, calculateScore };
